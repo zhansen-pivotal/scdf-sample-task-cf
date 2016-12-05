@@ -10,8 +10,8 @@ A Spring Cloud Dataflow Task for jdbc --> gemfire.
 
 The **task-jdbc-task** has the following options:
 
-* **jdbcgemfire.locator**
-       * _The Gemfire Database locator host:port_
+* **jdbcgemfire.server**
+       * _The Gemfire Database server host:port_
  
 * **jdbcgemfire.region**
        * _The Gemfire Region to use for write.
@@ -55,7 +55,7 @@ dataflow> app list
 
 * Tasks can be created for any region. Example: Region={Author}
 
-dataflow> task create --name author-task --definition 'mytask --jdbcgemfire.datasource.username=postgres --jdbcgemfire.datasource.url=jdbc:postgresql://localhost:5432/postgres --jdbcgemfire.datasource.driver-class-name=org.postgresql.Driver --jdbcgemfire.sql="select * from authors" --jdbcgemfire.servers=localhost:10334 --jdbcgemfire.region-name=Author'
+dataflow> task create --name author-task --definition 'mytask --jdbcgemfire.datasource.username=postgres --jdbcgemfire.datasource.url=jdbc:postgresql://localhost:5432/postgres --jdbcgemfire.datasource.driver-class-name=org.postgresql.Driver --jdbcgemfire.sql="select * from authors" --jdbcgemfire.servers=<ec2-instance>:40404 --jdbcgemfire.region-name=Author'
 
 dataflow> task list
 
