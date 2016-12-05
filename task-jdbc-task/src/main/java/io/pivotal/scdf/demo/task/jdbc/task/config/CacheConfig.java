@@ -24,25 +24,25 @@ public class CacheConfig {
     public ClientCache createCache(JdbcGemfireTaskProperties props) {
         LOG.info("Initializing ClientCache..");
         String pdxSerializedClasses = "io.pivotal.scdf.demo.task.common.model.*";
-        String locator = props.locators;
+        String server = props.servers;
         Boolean readSerializedFlag = false;
 
         ClientCacheFactory ccf = new ClientCacheFactory();
 
-        String[] sa1 = locator.split(",");
+        String[] sa1 = server.split(",");
         for (String st : sa1) {
             String[] sat = st.split(":");
             String host = sat[0];
-            int port = sat.length > 1 ? Integer.parseInt(sat[1]) : 10334;
-            LOG.info("Adding Locator to pool : host={}, port={}", host, port);
+            int port = sat.length > 1 ? Integer.parseInt(sat[1]) : 40404;
+            LOG.info("Adding Server to pool : host={}, port={}", host, port);
 
-            ccf.addPoolLocator(host, port);
+            ccf.addPoolServer(host, port);
 
         }
 
         ccf.setPdxReadSerialized(readSerializedFlag);
         ccf.setPdxSerializer(new ReflectionBasedAutoSerializer(pdxSerializedClasses));
-        LOG.info("Created ClientCache with properties[Locators:{}, PdxSerializer:{}, ReadSerialized:{}]", locator, pdxSerializedClasses, readSerializedFlag);
+        LOG.info("Created ClientCache with properties[Servers:{}, PdxSerializer:{}, ReadSerialized:{}]", server, pdxSerializedClasses, readSerializedFlag);
         return ccf.create();
     }
 

@@ -16,9 +16,6 @@
 package io.pivotal.scdf.demo.task.jdbc.task.common;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 @ConfigurationProperties("jdbcgemfire")
 public class JdbcGemfireTaskProperties {
@@ -54,7 +51,7 @@ public class JdbcGemfireTaskProperties {
     /**
      * The GemFire locator to add to pool.
      */
-    public String locators;
+    public String servers;
 
 /*    *//**
      * The GemFire connection strategy.
@@ -220,12 +217,12 @@ public class JdbcGemfireTaskProperties {
         this.servers = servers;
     }*/
 
-    public String getLocators() {
-        return locators;
+    public String getServers() {
+        return servers;
     }
 
-    public void setLocators(String locators) {
-        this.locators = locators;
+    public void setServers(String servers) {
+        this.servers = servers;
     }
 
 /*    public String getConnectionType() {

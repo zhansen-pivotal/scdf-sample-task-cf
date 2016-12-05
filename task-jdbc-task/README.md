@@ -55,7 +55,7 @@ dataflow> app list
 
 * Tasks can be created for any region. Example: Region={Author}
 
-dataflow> task create --name author-task --definition 'mytask --jdbcgemfire.datasource.username=postgres --jdbcgemfire.datasource.url=jdbc:postgresql://localhost:5432/postgres --jdbcgemfire.datasource.driver-class-name=org.postgresql.Driver --jdbcgemfire.sql="select * from authors" --jdbcgemfire.locators=localhost:10334 --jdbcgemfire.region-name=Author'
+dataflow> task create --name author-task --definition 'mytask --jdbcgemfire.datasource.username=postgres --jdbcgemfire.datasource.url=jdbc:postgresql://localhost:5432/postgres --jdbcgemfire.datasource.driver-class-name=org.postgresql.Driver --jdbcgemfire.sql="select * from authors" --jdbcgemfire.servers=localhost:10334 --jdbcgemfire.region-name=Author'
 
 dataflow> task list
 
