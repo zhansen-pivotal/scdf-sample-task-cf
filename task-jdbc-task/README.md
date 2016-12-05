@@ -10,7 +10,7 @@ A Spring Cloud Dataflow Task for jdbc --> gemfire.
 
 The **task-jdbc-task** has the following options:
 
-* **jdbcgemfire.server**
+* **jdbcgemfire.servers**
        * _The Gemfire Database server host:port_
  
 * **jdbcgemfire.region**
